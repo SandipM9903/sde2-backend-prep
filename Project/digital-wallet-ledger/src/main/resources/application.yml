@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: digital-wallet-ledger
+  datasource:
+    url: jdbc:postgresql://localhost:5432/wallet_db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Production best practice: Never use update/create in prod
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        # Prevent N+1 queries default batching
+        default_batch_fetch_size: 25
